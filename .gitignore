@@ -1,0 +1,29 @@
+# Rust
+/target
+**/*.rs.bk
+
+# Node / React Native
+node_modules/
+mobile/ios/Pods/
+mobile/ios/build/
+mobile/android/.gradle/
+mobile/android/build/
+mobile/android/app/build/
+mobile/.expo/
+*.log
+
+# Build outputs of scripts/build-{ios,android}.sh
+mobile/modules/p2p-native/ios/P2PMobileFFI.xcframework/
+mobile/modules/p2p-native/ios/generated/
+mobile/modules/p2p-native/android/src/main/jniLibs/
+mobile/modules/p2p-native/android/src/main/java/uniffi/
+
+# Runtime state — these hold private keys.
+seed-data/
+peer-data/
+*.db
+*.db-wal
+*.db-shm
+device.key
+
+.DS_Store

@@ -1,0 +1,19 @@
+[package]
+name = "p2p-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "A desktop org peer: enrol, sync and chat from a terminal."
+
+[dependencies]
+p2p-core.workspace = true
+clap = { version = "4", features = ["derive", "env"] }
+ureq = { version = "3", features = ["json"] }
+anyhow.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+rand.workspace = true
+hex.workspace = true

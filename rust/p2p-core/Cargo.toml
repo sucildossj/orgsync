@@ -1,0 +1,36 @@
+[package]
+name = "p2p-core"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+description = "Shared org-authenticated peer-to-peer node: libp2p transport, device certificates, and CRDT SQLite replication."
+
+[dependencies]
+libp2p = { version = "0.56", features = [
+  "tokio", "tcp", "quic", "dns", "noise", "yamux",
+  "gossipsub", "kad", "mdns", "identify", "ping",
+  "relay", "dcutr", "request-response",
+  "cbor", "macros", "ed25519", "serde",
+] }
+anyhow.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+postcard.workspace = true
+blake3.workspace = true
+hex.workspace = true
+base64.workspace = true
+rand.workspace = true
+futures.workspace = true
+tokio.workspace = true
+rusqlite.workspace = true
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] }
+tempfile = "3"
+# Same CBOR implementation libp2p-request-response frames messages with, so
+# the wire-format test exercises the real codec rather than a stand-in.
+cbor4ii = { version = "0.3", features = ["serde1", "use_std"] }
+tracing-subscriber.workspace = true

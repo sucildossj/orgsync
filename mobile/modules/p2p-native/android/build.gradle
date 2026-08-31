@@ -1,0 +1,35 @@
+apply plugin: 'com.android.library'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    namespace 'com.orgsync.p2p'
+    compileSdk safeExtGet('compileSdkVersion', 35)
+
+    defaultConfig {
+        minSdk safeExtGet('minSdkVersion', 24)
+    }
+
+    sourceSets {
+        main {
+            // scripts/build-android.sh drops libp2p_mobile.so here, one per ABI.
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions { jvmTarget = '17' }
+}
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+dependencies {
+    implementation 'com.facebook.react:react-android'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+    // uniffi's Kotlin bindings call into the native library through JNA.
+    implementation 'net.java.dev.jna:jna:5.14.0@aar'
+}

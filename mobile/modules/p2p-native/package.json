@@ -1,0 +1,12 @@
+{
+  "name": "p2p-native",
+  "version": "0.1.0",
+  "description": "React Native binding for the org-authenticated p2p SQLite replica.",
+  "main": "src/index.ts",
+  "private": true,
+  "react-native": "src/index.ts",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  }
+}
